@@ -1,0 +1,70 @@
+body{
+    height: 100vh;
+    width: 100vw;
+}
+
+.logo{
+    height: 10vh;
+    width: 100vw;
+    margin-top: 0;
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #FABAB6;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.name{
+    display: flex;
+    flex-direction: row;
+}
+
+.logo-image{
+    transform: scale(0.5);
+}
+
+.cart-image{
+    transform: translateX(38vw) scale(0.5);
+}
+
+.container{
+    width: 100vw;
+    height: 90vh;
+    top: 10vh;
+    position: absolute;
+    display: flex;
+    flex-direction: row;
+}
+
+.menu{
+    height: 90vh;
+    width: 80vw;
+    display: flex;
+}
+
+.menu-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    height: 5vh;
+    margin: 2.5vh;
+}
+
+.snail-btn,.baguette-btn,.frog-btn {
+    margin-left: 1vw;
+    height: 5vh;
+    width: 7vw;
+    border: none;
+    border-radius: 20%;
+    font-weight: 700;
+    background-color:#FEAD02
+}
+
+
+.cart{
+    height: 90vh;
+    width: 20vw;
+    background:#FFDEA5;
+}
