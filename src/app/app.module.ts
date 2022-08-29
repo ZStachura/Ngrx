@@ -7,11 +7,13 @@ import { StoreModule } from '@ngrx/store';
 
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
+import { MenuComponent } from './menu/menu.component';
 
 @NgModule({
-  declarations: [
-    AppComponent
-  ],
+  declarations: [	
+    AppComponent,
+      MenuComponent
+   ],
   imports: [
     BrowserModule,
     AppRoutingModule,

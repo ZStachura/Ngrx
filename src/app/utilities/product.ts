@@ -1,4 +1,4 @@
-enum ProductCategory{
+export enum ProductCategory{
     SNAILS=0,
     BAGUETTES=1,
     FROGS=2
