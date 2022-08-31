@@ -6,13 +6,11 @@
     </div>
 <div class="container">
     <div class="menu">
-        <div class="menu-buttons">
-            <button class="snail-btn" (click)="filter()">Ślimaki</button>
-            <button class="baguette-btn" (click)="filter()">Bagietki</button>
-            <button class="frog-btn" (click)="filter()">Żabie udka</button>
-        </div>
-        <div class="dishes">
-
+        <div class="menu-buttons" >
+            <app-filter (selectedFilter)="onFilterSelected($event)"></app-filter>
+            <div class="dishes" *ngIf="products$ | async as product">
+               <app-menu-card *ngFor="let dish of product" [dish]="dish"></app-menu-card>
+            </div>
         </div>
     </div>
     <div class="cart"></div>

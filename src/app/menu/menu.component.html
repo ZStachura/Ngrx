@@ -1,3 +1,1 @@
-<p>
-  menu works!
-</p>
+<div class="items" *ngFor="let id of (productOfSelectedCategory$ | async)" [id]="id">

@@ -1,11 +1,12 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { OrderPageComponent } from './order-page/order-page.component';
 
 
 const routes: Routes = [
   { 
     path: 'order', 
-    loadChildren: () => import('./order-page/order-page.module').then(m => m.OrderPageModule) 
+    component:OrderPageComponent
   },
   {
     path:'',

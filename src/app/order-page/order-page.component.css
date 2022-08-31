@@ -42,24 +42,23 @@ body{
     height: 90vh;
     width: 80vw;
     display: flex;
+    flex-direction: column;
 }
 
 .menu-buttons{
     display: flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: flex-start;
     height: 5vh;
     margin: 2.5vh;
 }
-
-.snail-btn,.baguette-btn,.frog-btn {
-    margin-left: 1vw;
-    height: 5vh;
-    width: 7vw;
-    border: none;
-    border-radius: 20%;
-    font-weight: 700;
-    background-color:#FEAD02
+.dishes{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    height: 75vh;
+    margin-top: 5vh;
+    width: 80vw;
 }
 
 

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output,EventEmitter,OnChanges } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { ProductCategory } from '../utilities/product';
+import * as stockSelectors from '../states/Stock/stock.selector'
+import { ProductState } from '../states/Stock/stock.reducer';
 
 @Component({
   selector: 'app-order-page',
@@ -7,16 +11,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class OrderPageComponent implements OnInit {
 
-  constructor() { }
+  products$ = this.store.select(stockSelectors.selectAllProducts);
+  categories = ProductCategory;
+  filters:string = "BAGUETTES";
+
+  constructor(private store: Store<ProductState>) { }
 
   ngOnInit(): void {
+    this.showProduct(this.filters)
   }
 
-  snail:boolean=false
-  baguette:boolean=true
-  frog:boolean=true
-
-  filter(){
-    alert("work")
+  onFilterSelected(key: string){
+    this.showProduct(key);
   }
+
+  showProduct(key: string) {
+    this.filters=key
+    this.products$=this.store.select(stockSelectors.filterProducts(this.filters))
+  }
+  
 }

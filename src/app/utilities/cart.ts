@@ -1,4 +1,5 @@
+import { Product } from "./product";
+
 export interface Cart {
-    id:number,
-    count:number
+    products:Product[];
 }

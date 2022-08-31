@@ -1,0 +1,13 @@
+button {
+    margin-left: 1vw;
+    height: 5vh;
+    width: 7vw;
+    border: none;
+    border-radius: 20%;
+    font-weight: 700;
+    background-color:#f1ca74
+}
+
+button:active{
+    background-color:#FEAD02
+}

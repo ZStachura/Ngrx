@@ -8,16 +8,26 @@ import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from 'src/environments/environment';
 import { MenuComponent } from './menu/menu.component';
+import { OrderPageComponent } from './order-page/order-page.component';
+import { stockReducer } from './states/Stock/stock.reducer';
+import { cartReducer } from './states/Cart/cart.reducer';
+import { FilterComponent } from './filter/filter.component';
+import { MenuCardComponent } from './menu-card/menu-card.component';
 
 @NgModule({
-  declarations: [	
+  declarations: [			
     AppComponent,
-      MenuComponent
+      MenuComponent,
+      OrderPageComponent,
+      FilterComponent,
+      MenuCardComponent
    ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    StoreModule.forRoot({}, {}),
+    StoreModule.forRoot({}),
+    StoreModule.forFeature('stock',stockReducer),
+    StoreModule.forFeature('cart',cartReducer),
     StoreDevtoolsModule.instrument({
       maxAge: 25,
       logOnly: environment.production,

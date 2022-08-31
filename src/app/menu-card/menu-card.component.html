@@ -1,0 +1,13 @@
+<div class="card">
+  <div class="image">
+  <p class="price">{{dish.price}}$</p>
+  <img class="dish-image" [src]="dish.imgName" alt="photo">
+  </div>
+  <h3 class="name">{{dish.name}}</h3>
+  <div class="buttons">
+    <button [disabled]="count===0" (click)="minus()">-</button>
+    <p class="count">{{count}}</p>
+    <button [disabled]="count===dish.inStock" (click)="plus()">+</button>
+  </div>
+  <button (click)="toCart()">Confirm</button>
+</div>
