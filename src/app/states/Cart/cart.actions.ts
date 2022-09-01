@@ -1,9 +1,11 @@
 import { createAction, props } from "@ngrx/store";
 import { Product } from "src/app/utilities/product";
+import { ProductCategory } from "src/app/utilities/product";
+
 
 export const addToCart=createAction(
     '[Menu Component] Add to cart',
-    props<{product:Product,count:number}>()
+    props<{category:ProductCategory,product_name:string,product_id:number,quantity:number}>()
 );
 
 export const removeFromCart=createAction(

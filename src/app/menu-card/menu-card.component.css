@@ -16,6 +16,7 @@ img{
 
 .price{
     transform: translateY(2vh);
+    font-weight: 800;
 }
 
 .buttons{

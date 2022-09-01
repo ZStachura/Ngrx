@@ -13,14 +13,18 @@ import { stockReducer } from './states/Stock/stock.reducer';
 import { cartReducer } from './states/Cart/cart.reducer';
 import { FilterComponent } from './filter/filter.component';
 import { MenuCardComponent } from './menu-card/menu-card.component';
+import { CartPageComponent } from './cart-page/cart-page.component';
+import { ProductInCartComponent } from './product-in-cart/product-in-cart.component';
 
 @NgModule({
-  declarations: [			
+  declarations: [					
     AppComponent,
       MenuComponent,
       OrderPageComponent,
       FilterComponent,
-      MenuCardComponent
+      MenuCardComponent,
+      CartPageComponent,
+      ProductInCartComponent
    ],
   imports: [
     BrowserModule,

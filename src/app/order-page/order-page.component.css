@@ -47,7 +47,7 @@ body{
 
 .menu-buttons{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     justify-content: flex-start;
     height: 5vh;
     margin: 2.5vh;
