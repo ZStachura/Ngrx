@@ -1,6 +1,17 @@
 <div class="container">
-<h3>CART</h3>
-<div *ngIf="cartProducts$ | async as product">
+<app-cart-summary></app-cart-summary>
+<div style="overflow-y: scroll" class="ordered-items">
+<div *ngIf="baguettes$ | async as product">
+  <h5 *ngIf="product.length>0">BAGUETTES</h5>
   <app-product-in-cart *ngFor="let item of product" [item]="item" ></app-product-in-cart>
+</div>
+<div *ngIf="frogs$ | async as product">
+  <h5 *ngIf="product.length>0">FROGS</h5>
+  <app-product-in-cart *ngFor="let item of product" [item]="item" ></app-product-in-cart>
+</div>
+<div *ngIf="snails$ | async as product">
+  <h5 *ngIf="product.length>0">SNAILS</h5>
+  <app-product-in-cart *ngFor="let item of product" [item]="item" ></app-product-in-cart>
+</div>
 </div>
 </div>

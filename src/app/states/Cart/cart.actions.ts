@@ -5,17 +5,17 @@ import { ProductCategory } from "src/app/utilities/product";
 
 export const addToCart=createAction(
     '[Menu Component] Add to cart',
-    props<{category:ProductCategory,product_name:string,product_id:number,quantity:number}>()
+    props<{category:ProductCategory,product_name:string,product_id:number,quantity:number,price:number}>()
 );
 
 export const removeFromCart=createAction(
     '[Cart Component] Remove from cart',
-    props<{product:Product,count:number}>()
+    props<{product_id:number,count:number}>()
 );
 
 export const changeCountInCart=createAction(
     '[Cart Component] Change count in cart',
-    props<{product:Product,count:number}>()
+    props<{product_id:number,count:number}>()
 );
 
 export const clearCart=createAction(

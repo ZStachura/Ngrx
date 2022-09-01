@@ -15,16 +15,18 @@ import { FilterComponent } from './filter/filter.component';
 import { MenuCardComponent } from './menu-card/menu-card.component';
 import { CartPageComponent } from './cart-page/cart-page.component';
 import { ProductInCartComponent } from './product-in-cart/product-in-cart.component';
+import { CartSummaryComponent } from './cart-summary/cart-summary.component';
 
 @NgModule({
-  declarations: [					
+  declarations: [						
     AppComponent,
       MenuComponent,
       OrderPageComponent,
       FilterComponent,
       MenuCardComponent,
       CartPageComponent,
-      ProductInCartComponent
+      ProductInCartComponent,
+      CartSummaryComponent
    ],
   imports: [
     BrowserModule,

@@ -1,9 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { map, Observable } from 'rxjs';
-import { cartInitialState } from '../states/Cart/cart.reducer';
-import { Cart } from '../utilities/cart';
-import { Product } from '../utilities/product';
+import * as cartSelectors from '../states/Cart/cart.selectors'
 
 @Component({
   selector: 'app-cart-page',
@@ -12,13 +10,15 @@ import { Product } from '../utilities/product';
 })
 export class CartPageComponent implements OnInit {
 
-  cartProducts$!:Observable<Cart[]>
+  cartProducts$ = this.store.select(cartSelectors.selectAllFromCart);
+  baguettes$=this.store.select(cartSelectors.filterProducts("BAGUETTES"));
+  frogs$=this.store.select(cartSelectors.filterProducts("FROGS"));
+  snails$=this.store.select(cartSelectors.filterProducts("SNAILS"));
 
   constructor(private store: Store<any>) { }
 
   ngOnInit() {
-    this.cartProducts$=this.store.pipe(
-      map(state=>state.cart.products))
+    
   }
 
 }

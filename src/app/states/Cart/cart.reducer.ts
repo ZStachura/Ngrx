@@ -17,19 +17,20 @@ export const cartInitialState: CartState={
 export const cartReducer=createReducer(
     cartInitialState,
     //add products to cart
-    on(cartActions.addToCart,(state,{category,product_name,product_id,quantity})=>{
+    on(cartActions.addToCart,(state,{category,product_name,product_id,quantity,price})=>{
         let alreadyIn=false
         let modifiedState=JSON.parse(JSON.stringify([...state.products]));
         modifiedState.map((data:any)=>{
             if(data.product_id===product_id)
             {
                 data.quantity+=quantity
+                data.price+=price
                 alreadyIn=true;
             }
         });
         if(alreadyIn==false)
             {
-                modifiedState.push({category:category,product_name:product_name,product_id:product_id,quantity:quantity})
+                modifiedState.push({category:category,product_name:product_name,product_id:product_id,quantity:quantity,price:price})
             }
         return{
             ...state,
