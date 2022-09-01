@@ -1,5 +1,12 @@
-<p>{{item.product_name}}</p>
-<p>{{item.quantity}}</p>
-<p>{{item.price}}$</p>
-
+<div class="card">
+        <div class="element">
+            <h3 class="name">{{item.product_name}}</h3>
+            <div class="buttons">
+                <button (click)="minus()">-</button>
+                <p class="count">{{item.quantity}}</p>
+                <button [disabled]="amount==0" (click)="plus()">+</button>
+            </div>
+            <button class="delete" (click)="delete()">DELETE ALL</button>
+        </div>
+  </div>
 

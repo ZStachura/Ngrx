@@ -27,7 +27,7 @@ export class MenuCardComponent implements OnInit {
   }
 
   toCart(){
-    this.store.dispatch(cartActions.addToCart({category:this.dish.category,product_name:this.dish.name,product_id:this.dish.id,quantity:this.count,price:this.count*this.dish.price}))
+    this.store.dispatch(cartActions.addToCart({category:this.dish.category,product_name:this.dish.name,imgName:this.dish.imgName,product_id:this.dish.id,quantity:this.count,price:this.count*this.dish.price}))
     this.count=-this.count
     this.store.dispatch(stockActions.changeProductsList({productId:this.dish.id,count:this.count}))
     this.count=0

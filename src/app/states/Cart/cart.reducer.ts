@@ -17,7 +17,7 @@ export const cartInitialState: CartState={
 export const cartReducer=createReducer(
     cartInitialState,
     //add products to cart
-    on(cartActions.addToCart,(state,{category,product_name,product_id,quantity,price})=>{
+    on(cartActions.addToCart,(state,{category,product_name,imgName,product_id,quantity,price})=>{
         let alreadyIn=false
         let modifiedState=JSON.parse(JSON.stringify([...state.products]));
         modifiedState.map((data:any)=>{
@@ -30,7 +30,7 @@ export const cartReducer=createReducer(
         });
         if(alreadyIn==false)
             {
-                modifiedState.push({category:category,product_name:product_name,product_id:product_id,quantity:quantity,price:price})
+                modifiedState.push({category:category,product_name:product_name,imgName:imgName,product_id:product_id,quantity:quantity,price:price})
             }
         return{
             ...state,
@@ -40,8 +40,28 @@ export const cartReducer=createReducer(
         ...state,
         products:[]
     })),
-    on(cartActions.buyFromCart,(state)=>({
-        ...state,
-        products:[]
-    }))
+    on(cartActions.changeCountInCart,(state,{product_id,count})=>{
+        let modifiedState=JSON.parse(JSON.stringify([...state.products]));
+        modifiedState.map((data:any)=>{
+            if(data.product_id===product_id)
+            {
+                data.quantity+=count
+            }
+        });
+        return{
+            ...state,
+            products:[...modifiedState]
+        }}),
+    on(cartActions.removeFromCart,(state,{product_id})=>{
+        let modifiedState=JSON.parse(JSON.stringify([...state.products]));
+        modifiedState.map((data:any)=>{
+            if(data.product_id===product_id)
+            {
+                modifiedState.splice(modifiedState.indexOf(data),1);
+            }
+        })
+        return{
+            ...state,
+            products:[...modifiedState]
+        }}),
 )

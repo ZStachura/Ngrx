@@ -4,10 +4,11 @@
   <img class="dish-image" [src]="dish.imgName" alt="photo">
   </div>
   <h3 class="name">{{dish.name}}</h3>
-  <div class="buttons">
+  <p class="unavailable" *ngIf="dish.inStock===0" >product unavailable</p>
+  <div *ngIf="dish.inStock!=0" class="buttons">
     <button [disabled]="count===0" (click)="minus()">-</button>
     <p class="count">{{count}}</p>
     <button [disabled]="count===dish.inStock" (click)="plus()">+</button>
   </div>
-  <button (click)="toCart()">Confirm</button>
+  <button *ngIf="dish.inStock!=0" [disabled]="count===0" (click)="toCart()">Confirm</button>
 </div>
