@@ -15,7 +15,7 @@ export const removeFromCart=createAction(
 
 export const changeCountInCart=createAction(
     '[Cart Component] Change count in cart',
-    props<{product_id:number,count:number}>()
+    props<{product_id:number,count:number,price:number}>()
 );
 
 export const clearCart=createAction(
@@ -25,3 +25,18 @@ export const clearCart=createAction(
 export const buyFromCart=createAction(
     '[Cart Component] buy products from cart'
 );
+
+//notifications
+
+export const displaySuccess = createAction(
+    "[Toastr Notification] Display Success",
+    props<{ title: string; description: string }>()
+  );
+  export const displayWarning = createAction(
+    "[Toastr Notification] Display Warning",
+    props<{ title: string; description: string }>()
+  );
+  export const displayError = createAction(
+    "[Toastr Notification] Display Error",
+    props<{ title: string; description: string }>()
+  );

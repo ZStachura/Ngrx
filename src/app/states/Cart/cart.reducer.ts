@@ -40,12 +40,17 @@ export const cartReducer=createReducer(
         ...state,
         products:[]
     })),
-    on(cartActions.changeCountInCart,(state,{product_id,count})=>{
+    on(cartActions.buyFromCart,(state)=>({
+        ...state,
+        products:[]
+    })),
+    on(cartActions.changeCountInCart,(state,{product_id,count,price})=>{
         let modifiedState=JSON.parse(JSON.stringify([...state.products]));
         modifiedState.map((data:any)=>{
             if(data.product_id===product_id)
             {
                 data.quantity+=count
+                data.price+=price
             }
         });
         return{
@@ -64,4 +69,7 @@ export const cartReducer=createReducer(
             ...state,
             products:[...modifiedState]
         }}),
+        on(cartActions.displaySuccess, state => state),
+        on(cartActions.displayError, state => state),
+        on(cartActions.displayWarning, state => state)
 )

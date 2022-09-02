@@ -36,7 +36,7 @@ export class CartPageComponent implements OnInit {
   }
 
   buyCart(){
-    this.store.dispatch(cartActions.clearCart())
+    this.store.dispatch(cartActions.buyFromCart())
   }
 
 }

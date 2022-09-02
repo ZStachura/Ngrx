@@ -16,6 +16,7 @@ export class ProductInCartComponent implements OnInit {
   @Input() item!:Cart
   product:Product[]=[]
   amount:number=0
+  price:number=0
 
 
   constructor(private store: Store<any>) { }
@@ -26,6 +27,7 @@ export class ProductInCartComponent implements OnInit {
       if(element.id==this.item.product_id)
       {
         this.amount=element.inStock
+        this.price=element.price
       }
     })
   }
@@ -39,13 +41,13 @@ export class ProductInCartComponent implements OnInit {
     else
     {
       this.store.dispatch(stockActions.changeProductsList({productId:this.item.product_id,count:1}))
-      this.store.dispatch(cartActions.changeCountInCart({product_id:this.item.product_id,count:-1}))
+      this.store.dispatch(cartActions.changeCountInCart({product_id:this.item.product_id,count:-1,price:-this.price}))
     }
   }
 
   plus(){
     this.store.dispatch(stockActions.changeProductsList({productId:this.item.product_id,count:-1}))
-    this.store.dispatch(cartActions.changeCountInCart({product_id:this.item.product_id,count:1}))
+    this.store.dispatch(cartActions.changeCountInCart({product_id:this.item.product_id,count:1,price:this.price}))
   }
 
   delete(){
